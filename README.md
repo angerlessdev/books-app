@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Proyecto Next.js + TypeScript + ESLint
 
-## Getting Started
+Este proyecto utiliza **Next.js** con **TypeScript**, **ESLint**, y una estructura de carpetas limpia dentro de `src/`.  
+Está configurado para mantener **alta calidad de código**, **coherencia en importaciones** y **tipado estricto**.
 
-First, run the development server:
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+├── app/                 # Páginas principales (App Router de Next.js)
+│   ├── components/      # Componentes de UI (BooksList)
+│   └── page.tsx         # Punto de entrada principal
+├── domain/              # Modelos e interfaces (Book, Author)
+├── hooks/               # Hooks personalizados (useBooks)
+└── services/            # Lógica de negocio y peticiones API
+```
+
+
+---
+
+## ⚙️ Configuración del proyecto
+
+### 1. Instalación
+
+```bash
+npm install
+# o
+yarn install
+```
+
+### 2. Ejecución en desarrollo
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Compilación para producción
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Linter y chequeo de tipos
 
-## Learn More
+```bash
+npm run lint          # Ejecuta ESLint
+npm run type-check    # Verifica los tipos de TypeScript
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧩 Configuración técnica
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### `tsconfig.json`
 
-## Deploy on Vercel
+- Todo el código fuente está dentro de `src/`.
+- Usa paths con `@/*` → `src/*`.
+- Tipado estricto (`strict`, `noImplicitAny`, `strictNullChecks`).
+- Sin emisión (`noEmit: true`), porque Next.js se encarga del build.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### `eslint.config.mjs`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Basado en eslint-config-next + reglas personalizadas.
+- Incluye verificación de:
+    - Consistencia de importaciones relativas.
+    - Tipado correcto (`@typescript-eslint`).
+    - Responsabilidad única de cada módulo (clases, hooks, servicios, etc.).
+    - Buenas prácticas en React (`eslint-plugin-react-hooks` y `eslint-plugin-react-refresh`).
+
+---
+
+## 🧠 Buenas prácticas del proyecto
+
+✅ **Tipos claros**: Cada archivo `.ts` o `.tsx` debe usar interfaces o tipos explícitos.  
+✅ **Importaciones coherentes**: Siempre usar `@/` en lugar de rutas relativas largas.  
+✅ **Responsabilidad única**: Un módulo = una responsabilidad (componente, hook, servicio, etc.).  
+✅ **Limpieza constante**: `noUnusedLocals`, `noUnusedParameters`, `noFallthroughCasesInSwitch`.  
+✅ **Revisión de calidad**: Antes de cada commit, ejecutar `npm run lint` y `npm run type-check`.
+
+---
+
+## 🧰 Scripts comunes
+
+| Script | Descripción |
+|--------|-------------|
+| `dev` | Ejecuta el servidor de desarrollo de Next.js |
+| `build` | Compila el proyecto para producción |
+| `start` | Inicia el servidor en modo producción |
+| `lint` | Analiza el código con ESLint |
+| `type-check` | Ejecuta la verificación de tipos de TypeScript |
+
+---
+
+## 🧩 Tecnologías principales
+
+- Next.js 15+
+- React 18+
+- TypeScript 5+
+- ESLint (configuración moderna basada en MJS)
+- TailwindCSS (opcional, si lo usas)
+- Path aliases (`@/`)
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente con atribución.
+
+---
+
+## ✨ Autor
+
+**Ángel Cancho Corilla**  
+Estudiante de Ingeniería de Software en la UPC  
+Desarrollador Fullstack — Spring Boot | .NET | Flutter | Angular | FastAPI
